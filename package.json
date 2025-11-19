@@ -1,0 +1,26 @@
+{
+  "name": "agentic-framework-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automated benchmark and comparison platform for local agentic frameworks",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @afbs/api\" \"npm run dev -w @afbs/web\"",
+    "dev:api": "npm run dev -w @afbs/api",
+    "dev:web": "npm run dev -w @afbs/web",
+    "build": "npm run build -w @afbs/api && npm run build -w @afbs/web",
+    "db:migrate": "npm run migrate -w @afbs/database",
+    "db:seed": "npm run seed -w @afbs/database",
+    "collect": "npm run collect -w @afbs/collector"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
